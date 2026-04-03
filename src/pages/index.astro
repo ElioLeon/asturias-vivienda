@@ -1,5 +1,6 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
+import { Leaflet } from "astro-leaflet";
 ---
 
 <html lang="en">
@@ -11,8 +12,22 @@ import '../styles/global.css';
     <title>Asturias Viviendas Turísticas</title>
   </head>
   <body>
-    <h1 class="text-emerald-900 font-bold underline text-3xl">
-  Hola Tailwind
-</h1>
+    <h1 class="text-emerald-900 font-bold underline text-3xl">Hola Tailwind</h1>
+
+    <div class="p-8">
+      <Leaflet
+        id="astro-leaflet-asturias"
+        options={{
+          tileByName: "Google&type=hybrid", // o "OpenStreetMap"
+          center: [43.3619, -5.8494], // Asturias
+          zoom: 9, // nivel inicial
+          mapOptions: {
+            zoomControl: true,
+            minZoom: 9, // el usuario no puede alejarse más que el nivel inicial
+            maxZoom: 18, // máximo acercamiento permitido
+          },
+        }}
+      />
+    </div>
   </body>
 </html>

@@ -1,0 +1,21 @@
+---
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+---
+
+<div id="map" class="w-full h-[500px] rounded shadow-lg"></div>
+
+<script type="module">
+  if (typeof window !== 'undefined') {
+    const map = L.map('map').setView([43.3619, -5.8494], 9);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    L.marker([43.3619, -5.8494])
+      .addTo(map)
+      .bindPopup("<b>Oviedo</b><br>Marcador de prueba.")
+      .openPopup();
+  }
+</script>
