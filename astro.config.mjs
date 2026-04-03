@@ -8,6 +8,9 @@ export default defineConfig({
     base: '/asturias-vivienda/', 
     trailingSlash: 'always',
     vite: {
-    plugins: [tailwindcss()],
+        plugins: [tailwindcss()],
+        optimizeDeps: {
+        include: ['astro-leaflet > leaflet'],
+    }
   },
 });
