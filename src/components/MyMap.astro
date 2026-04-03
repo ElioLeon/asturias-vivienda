@@ -1,0 +1,33 @@
+---
+import "../styles/global.css";
+import { Leaflet } from "astro-leaflet";
+import 'leaflet/dist/leaflet.css';
+import type { AstroLeafletOptionsType, AstroLeafletMarkerType } from 'astro-leaflet';
+
+const markers: AstroLeafletMarkerType[] = [
+  { latlng: [43.3619, -5.8494], options: { title: 'Oviedo',  }, astroIconName: 'red-marker' },
+  { latlng: [43.5322, -5.6611], options: { title: 'Gijón' }, astroIconName: 'red-marker' },
+  { latlng: [43.5560, -5.9228], options: { title: 'Avilés' }, astroIconName: 'red-marker' },
+];
+---
+
+
+
+
+    <div id="mapa" class="p-8">
+
+<Leaflet
+  id="astro-leaflet-asturias"
+  options={{
+    tileByName: 'Google&type=hybrid',   // o "OpenStreetMap"
+    center: [43.3619, -5.8494],         // Asturias
+    zoom: 9,                      
+	markers: markers,     // nivel inicial
+    mapOptions: {
+      zoomControl: true,
+      minZoom: 9,    // el usuario no puede alejarse más que el nivel inicial
+      maxZoom: 18,   // máximo acercamiento permitido
+    },
+  }}
+/>
+    </div>
